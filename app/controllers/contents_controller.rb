@@ -1,30 +1,28 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
-
-  # GET /contents
-  # GET /contents.json
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_user, only: [:edit, :update, :destroy]
+  
   def index
     @contents = Content.all
   end
 
-  # GET /contents/1
-  # GET /contents/1.json
+  
   def show
   end
 
-  # GET /contents/new
+  
   def new
-    @content = Content.new
+    @content = current_user.contents.build
   end
 
-  # GET /contents/1/edit
+  
   def edit
   end
 
-  # POST /contents
-  # POST /contents.json
+  
   def create
-    @content = Content.new(content_params)
+    @content = current_user.contents.build(content_params)
 
     respond_to do |format|
       if @content.save
@@ -37,8 +35,7 @@ class ContentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /contents/1
-  # PATCH/PUT /contents/1.json
+  
   def update
     respond_to do |format|
       if @content.update(content_params)
@@ -51,8 +48,7 @@ class ContentsController < ApplicationController
     end
   end
 
-  # DELETE /contents/1
-  # DELETE /contents/1.json
+  
   def destroy
     @content.destroy
     respond_to do |format|
@@ -62,13 +58,20 @@ class ContentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_content
       @content = Content.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    
     def content_params
       params.require(:content).permit(:title, :description, :price)
     end
-end
+    
+    def check_user
+      if current_user != @content.user 
+          redirect_to root_url, alert: "You don't have the permission to perform such an action"
+    end
+    
+    end
+    end
