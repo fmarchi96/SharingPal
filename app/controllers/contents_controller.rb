@@ -65,13 +65,12 @@ class ContentsController < ApplicationController
 
     
     def content_params
-      params.require(:content).permit(:title, :description, :price)
+      params.require(:content).permit(:title, :description, :price, :cover, :attachment)
     end
     
     def check_user
       if current_user != @content.user 
           redirect_to root_url, alert: "You don't have the permission to perform such an action"
-    end
-    
-    end
+            end
+        end
     end
