@@ -6,6 +6,11 @@ body {
     flex-direction: column;
   }
 
+h1 {
+    
+    font-size: 3em;
+}
+
   main {
     flex: 1 0 auto;
   }
@@ -31,4 +36,15 @@ body {
 .show-price {
     
     font-size: 2em;
+}
+
+.btn-form {
+    
+    width: 100%;
+}
+
+.content-color {
+    
+    color: #b71c1c;
+    
 }
