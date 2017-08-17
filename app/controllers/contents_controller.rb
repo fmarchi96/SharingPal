@@ -4,7 +4,7 @@ class ContentsController < ApplicationController
   before_action :check_user, only: [:edit, :update, :destroy]
   
   def index
-    @contents = Content.all
+    @contents =     @contents = Content.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
   end
 
   
@@ -24,13 +24,12 @@ class ContentsController < ApplicationController
   def create
     @content = current_user.contents.build(content_params)
 
+
     respond_to do |format|
       if @content.save
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
-        format.json { render :show, status: :created, location: @content }
       else
         format.html { render :new }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,10 +39,8 @@ class ContentsController < ApplicationController
     respond_to do |format|
       if @content.update(content_params)
         format.html { redirect_to @content, notice: 'Content was successfully updated.' }
-        format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -66,7 +63,8 @@ class ContentsController < ApplicationController
     
     def content_params
       params.require(:content).permit(:title, :description, :price, :cover, :attachment)
-    end
+    
+end
     
     def check_user
       if current_user != @content.user 
