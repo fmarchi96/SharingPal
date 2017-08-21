@@ -29,8 +29,17 @@
     
 </div>
 
-
-
+<%= form_tag buy_path(slug: @content.slug) do %>
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-amount="<%= @content.price %>"
+    data-name="SharingPal"
+    data-description="<%= @content.title %>"  
+    data-currency='usd'    
+    data-locale="auto">
+  </script>
+<% end %>
 
 <% if @content.user == current_user %>
     <%= link_to 'Edit', edit_content_path(@content) %> 
