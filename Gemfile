@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.4.1'
 
 
-
-gem 'rails', '4.2.4'
-gem 'sqlite3'
+gem 'rails', '5.0.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -28,17 +27,22 @@ gem 'dotenv-rails', :groups =>[:development, :test]
 
 gem 'stripe'
 
+gem 'aasm', '~> 4.12'
 
 group :development, :test do
-  
   gem 'byebug'
+  gem 'sqlite3'
+end
+
+group :production do
+    gem 'pg'
 end
 
 group :development do
   
-  gem 'web-console', '~> 2.0'
+gem 'web-console', '~> 2.0'
 
  
-  gem 'spring'
+gem 'spring', '~> 2.0', '>= 2.0.2'
 end
 

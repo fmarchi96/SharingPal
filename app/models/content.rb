@@ -5,6 +5,7 @@ friendly_id :title, use: :slugged
     
 belongs_to :user
     
+    
 has_many :sales    
     
     has_attached_file :cover
@@ -17,7 +18,7 @@ has_many :sales
     
 validates :title, :description, :price, presence: true
 
-validates :price, numericality: { greater_than: 49 }
+validates :price, numericality: { greater_than: 0.49 }
 
 validates :cover, attachment_presence: true
     

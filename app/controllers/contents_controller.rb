@@ -1,4 +1,8 @@
 class ContentsController < ApplicationController
+  # encoding: utf-8
+
+
+    
   before_action :set_content, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_user, only: [:edit, :update, :destroy]
