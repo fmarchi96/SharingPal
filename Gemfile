@@ -42,9 +42,9 @@ end
 
 group :development do
   
-gem 'web-console', '~> 2.0'
+    gem 'web-console', '~> 2.0'
 
  
-gem 'spring', '~> 2.0', '>= 2.0.2'
+    gem 'spring', '~> 2.0', '>= 2.0.2'
 end
 
