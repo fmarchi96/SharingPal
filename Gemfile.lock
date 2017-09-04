@@ -215,7 +215,7 @@ DEPENDENCIES
   jquery-rails
   materialize-sass
   paperclip (~> 5.0.0)
-  pg
+  pg (~> 0.21.0)
   rails (= 5.0.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
