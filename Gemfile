@@ -29,6 +29,8 @@ gem 'stripe'
 
 gem 'aasm', '~> 4.12'
 
+gem 'aws-sdk', '~> 2.3'
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
