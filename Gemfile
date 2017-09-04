@@ -29,7 +29,7 @@ gem 'stripe'
 
 gem 'aasm', '~> 4.12'
 
-gem 'aws-sdk' '< 2'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'byebug'
