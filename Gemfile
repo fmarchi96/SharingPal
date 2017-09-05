@@ -31,6 +31,8 @@ gem 'aasm', '~> 4.12'
 
 gem 'aws-sdk', '< 2.0'
 
+gem 'rails_12factor'
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
