@@ -35,7 +35,26 @@
         data-locale="auto">
       </script>
     <% end %>
-
+        
+       <!-- <div class="wrapper">
+ 
+<div class="wrapper">
+ 
+    <div id="map">
+        <span class="helper">Click the button below to show your location on the map</span>
+        <img id="preloader" src="images/257.gif">
+    </div>
+ 
+    <a class="button" href="" title="">Find My Location</a>
+ 
+    <div id="results">
+        <span class="longitude"></span><br>
+        <span class="lattitude"></span><br>
+        <span class="location"></span>
+    </div>
+     
+</div><!--End Wrapper-->
+            
 <% else %>
     <p><%= link_to "Log in", new_user_session_path %> or <%= link_to "Sign up", new_user_registration_path %> to buy </p>
 
@@ -51,4 +70,5 @@
 <% if @content.user == current_user %>
     <%= link_to 'Edit', edit_content_path(@content) %> 
 <% end %>
+
 <%= link_to 'Back to contents', contents_path %>

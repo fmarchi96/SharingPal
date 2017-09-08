@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col l6 offset-l3">
+    <div class="col s12 l6 offset-l3">
     
           <h4 class="center">Sign up</h4>
         
@@ -10,6 +10,11 @@
 
       <div class="field">
         <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+        
+      <div class="field">
+        <%= f.label :surname %><br />
         <%= f.text_field :name, autofocus: true %>
       </div>
         

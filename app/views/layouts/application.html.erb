@@ -8,7 +8,10 @@
   <%= csrf_meta_tags %>
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
 </head>
 <body>     
 
@@ -35,6 +38,21 @@
     
 </body>
 
-    <script type="text/javascript"> $(".button-collapse").sideNav();</script>    
+  
+	<script>
+	 $(".button-collapse").sideNav();
+	</script>
+
+  <script>
+  $(document).ready(function(){
+  $('ul.tabs').tabs();
+  });
+  </script>
+
+  <script>
+  $(document).ready(function(){
+  $(".dropdown-button").dropdown();
+  });
+  </script>  
 
 </html>
