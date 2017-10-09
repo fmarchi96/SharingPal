@@ -1,0 +1,27 @@
+function ur_common_friends_block($op='list', $delta=0, $edit=array()){
+switch ($op) {
+case 'list':
+$blocks[0]['info'] = t('Common friends');
+return $blocks;
+case 'view':
+$blocks['subject'] = t('Common Friends');
+$blocks['content'] = _get_common_friends();
+return $blocks;
+}
+}
+
+function _get_common_friends(){
+$output = '';
+global $user;
+$account = user_load(arg(2));
+$result = db_query("SELECT requestee_id FROM user_relationships AS ur1
+WHERE ur1.requester_id = %d AND (ur1.requestee_id IN
+(SELECT ur2.requestee_id FROM user_relationships AS ur2
+WHERE ur2.requester_id = %d)) ORDER BY RAND()", $user->uid, $account->uid);
+
+while($common_friend = db_fetch_object($result)){
+$friend = user_load($common_friend->requestee_id);
+$output .= 'Only local images are allowed.picture.'">';
+}
+return $output;
+}
